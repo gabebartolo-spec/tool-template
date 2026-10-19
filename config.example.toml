@@ -1,0 +1,6 @@
+# Copy to config.local.toml (gitignored) and edit for this machine.
+# Nothing machine-specific is ever committed.
+
+[app]
+host = "127.0.0.1"
+port = 7860
