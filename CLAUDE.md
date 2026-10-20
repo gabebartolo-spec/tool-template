@@ -8,6 +8,15 @@ tool is), then `docs/STATUS.md` "Assigned items". The general rules every projec
 `github-hygiene`, `game-architecture`, `art-qa-critic`, `ai-slop-art`); this file holds only
 what is true for this tool.
 
+## Always loaded
+
+Claude Code imports these core documents in full at every session start (the `@` lines below),
+so they are part of this file: read them as rules, never skim or skip them.
+
+@docs/ROADMAP.md
+@docs/STATUS.md
+At kickoff, add the design spec here as an import line too (`@docs/superpowers/specs/<date>-<topic>-design.md`).
+
 ## Philosophy (permanent)
 
 **Designed by a person, developed with AI, never designed by AI.** The director supplies vision,
@@ -37,8 +46,8 @@ taste and final judgement. Agents supply execution, evidence and honest pushback
 
 ## Machine rules (shared PC, one 12 GB GPU)
 
-- One GPU job at a time (ComfyUI, Blender bakes/renders, local models). No GPU work while the
-  director is in a fullscreen game.
+- One GPU job at a time (ComfyUI, Blender bakes/renders, local models). Never slow down, defer or
+  pause work for what the director is doing on the PC; just never pop up a window or steal focus.
 - Blender always `blender -b` (never a window). Godot only headless, isolated `APPDATA=<scratch>`.
   Never kill a process by image name; kill your own PID.
 - Worktrees: `git worktree add -b claude/<topic> ../new-tool-wt/<topic> origin/main`. Remove the
